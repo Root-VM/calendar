@@ -1,0 +1,35 @@
+<div class="header">
+  <p>Request Absence</p>
+  <mat-icon aria-label="Example close icon" mat-dialog-close>close</mat-icon>
+</div>
+
+<form class="content" [formGroup]="dateForm" (ngSubmit)="updateRangeDate()">
+  <mat-form-field appearance="fill">
+    <mat-label>Type of absence *</mat-label>
+    <mat-select formControlName="rangeType">
+      <mat-option *ngFor="let type of types" [value]="type.value">
+        {{type.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <hr>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Begin date *</mat-label>
+    <input matInput [matDatepicker]="begin" formControlName="beginFrom" name="start">
+    <mat-datepicker-toggle matSuffix [for]="begin"></mat-datepicker-toggle>
+    <mat-datepicker #begin></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>End date *</mat-label>
+    <input matInput [matDatepicker]="end" formControlName="endOn" name="end">
+    <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+    <mat-datepicker #end></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" color="primary">
+    Request
+  </button>
+</form>

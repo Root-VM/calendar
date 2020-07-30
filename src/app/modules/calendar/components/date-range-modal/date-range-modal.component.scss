@@ -1,0 +1,13 @@
+.header{
+  display: flex; align-items: flex-start; justify-content: space-between;
+  mat-icon{
+    color: black; cursor: pointer; margin-top: -3px;
+  }
+}
+
+form{
+  display: flex; flex-direction: column;
+  input.ng-touched.ng-invalid{
+    border-color: red;
+  }
+}

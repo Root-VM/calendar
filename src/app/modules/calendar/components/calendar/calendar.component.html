@@ -1,0 +1,24 @@
+<mat-table [dataSource]="calendar$ | async" class="mat-elevation-z8" *ngIf="dateRange.length">
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="data">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <div class="day" *ngFor="let date of element.data"
+           [ngClass]="{ 'is-rest': date.dayOfWeek == 'sun' || date.dayOfWeek == 'sat'}"
+           [appInDateRange]="{date: date.fullDate, range: dateRange}"
+      >
+        <p>{{date.day}}</p>
+        <span class="progress"></span>
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
