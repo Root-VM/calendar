@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { CalendarRoutingModule } from './calendar-routing.module';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {StoreModule} from '@ngrx/store';
-import {calendarReducer} from './redux/calendar.reducer';
 import { MainWrapComponent } from './components/main-wrap/main-wrap.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import {MatTableModule} from '@angular/material/table';
@@ -27,7 +25,6 @@ import {DateRangeService} from './services/date-range.service';
   imports: [
     CommonModule,
     CalendarRoutingModule,
-    StoreModule.forFeature('calendar', calendarReducer),
     MatProgressSpinnerModule,
     MatTableModule,
     MatDialogModule,

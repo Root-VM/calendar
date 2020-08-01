@@ -1,4 +1,4 @@
-<mat-table [dataSource]="calendar$ | async" class="mat-elevation-z8" *ngIf="dateRange.length">
+<mat-table [dataSource]="calendar" class="mat-elevation-z8" *ngIf="show">
 
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
@@ -13,7 +13,6 @@
            [appInDateRange]="{date: date.fullDate, range: dateRange}"
       >
         <p>{{date.day}}</p>
-        <span class="progress"></span>
       </div>
     </mat-cell>
   </ng-container>

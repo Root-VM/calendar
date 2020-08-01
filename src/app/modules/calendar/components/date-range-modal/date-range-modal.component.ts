@@ -43,7 +43,7 @@ export class DateRangeModalComponent implements OnInit {
       value.endOn = moment(value.endOn).format('YYYY-MM-DD');
 
       if (value.beginFrom <= value.endOn) {
-        this.dateRangeService.update({...value, id: 1});
+        this.dateRangeService.add(value);
         this.dialogRef.close();
       }
     }

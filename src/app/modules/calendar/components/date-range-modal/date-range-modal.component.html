@@ -22,6 +22,10 @@
     <mat-datepicker #begin></mat-datepicker>
   </mat-form-field>
 
+  <div *ngIf="dateForm.value.beginFrom > dateForm.value.endOn" class="error">
+    Begin date more than End data!!!
+  </div>
+
   <mat-form-field appearance="fill">
     <mat-label>End date *</mat-label>
     <input matInput [matDatepicker]="end" formControlName="endOn" name="end">
